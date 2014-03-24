@@ -1451,7 +1451,10 @@ static int _ocp_softreset(struct omap_hwmod *oh)
 	if (ret)
 		goto dis_opt_clks;
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	_write_sysconfig(v, oh);
 	ret = _clear_softreset(oh, &v);
 	if (ret)

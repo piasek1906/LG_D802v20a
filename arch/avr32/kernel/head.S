@@ -14,7 +14,10 @@
 	.section .init.text,"ax"
 	.global kernel_entry
 kernel_entry:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	/* Start the show */
 	lddpc   pc, kernel_start_addr
 

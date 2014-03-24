@@ -274,7 +274,7 @@ __und_svc:
 	@
 	@  r0 - instruction
 	@
-#ifndef	CONFIG_THUMB2_KERNEL
+#ifndef CONFIG_THUMB2_KERNEL
 	ldr	r0, [r4, #-4]
 #else
 	mov	r1, #2
@@ -452,7 +452,11 @@ __und_usr:
 	@ this as a real undefined instruction
 	@
 	adr	r9, BSYM(ret_from_exception)
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	tst	r3, #PSR_T_BIT			@ Thumb mode?
 	bne	__und_usr_thumb
 	sub	r4, r2, #4			@ ARM instr at LR - 4

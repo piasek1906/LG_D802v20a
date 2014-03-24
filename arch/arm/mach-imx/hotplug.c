@@ -29,7 +29,11 @@ static inline void cpu_enter_lowpower(void)
 		"mcr	p15, 0, %1, c7, c5, 0\n"
 	"	mcr	p15, 0, %1, c7, c10, 4\n"
 	/*
+<<<<<<< HEAD
 cvt5	 * Turn off coherency
+=======
+	 * Turn off coherency
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	 */
 	"	mrc	p15, 0, %0, c1, c0, 1\n"
 	"	bic	%0, %0, %3\n"
@@ -51,7 +55,11 @@ void platform_cpu_die(unsigned int cpu)
 {
 	cpu_enter_lowpower();
 	imx_enable_cpu(cpu, false);
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	/* spin here until hardware takes it down */
 	while (1)
 		;

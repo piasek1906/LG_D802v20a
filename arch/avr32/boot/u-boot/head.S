@@ -22,7 +22,10 @@
 	.section .init.text,"ax"
 	.global _start
 _start:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	/* Initialize .bss */
 	lddpc	r2, bss_start_addr
 	lddpc   r3, end_addr

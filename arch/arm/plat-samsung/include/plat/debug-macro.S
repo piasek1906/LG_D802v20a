@@ -14,12 +14,20 @@
 /* The S5PV210/S5PC110 implementations are as belows. */
 
 	.macro fifo_level_s5pv210 rd, rx
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UFSTAT ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UFSTAT]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		and	\rd, \rd, #S5PV210_UFSTAT_TXMASK
 	.endm
 
 	.macro  fifo_full_s5pv210 rd, rx
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UFSTAT ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UFSTAT]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		tst	\rd, #S5PV210_UFSTAT_TXFULL
 	.endm
 
@@ -27,7 +35,11 @@
  * most widely re-used */
 
 	.macro fifo_level_s3c2440 rd, rx
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UFSTAT ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UFSTAT]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		and	\rd, \rd, #S3C2440_UFSTAT_TXMASK
 	.endm
 
@@ -36,7 +48,11 @@
 #endif
 
 	.macro  fifo_full_s3c2440 rd, rx
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UFSTAT ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UFSTAT]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		tst	\rd, #S3C2440_UFSTAT_TXFULL
 	.endm
 
@@ -45,11 +61,15 @@
 #endif
 
 	.macro	senduart,rd,rx
-		strb 	\rd, [\rx, # S3C2410_UTXH ]
+		strb 	\rd, [\rx, # S3C2410_UTXH]
 	.endm
 
 	.macro	busyuart, rd, rx
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UFCON ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UFCON]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		tst	\rd, #S3C2410_UFCON_FIFOMODE	@ fifo enabled?
 		beq	1001f				@
 		@ FIFO enabled...
@@ -60,7 +80,11 @@
 
 1001:
 		@ busy waiting for non fifo
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UTRSTAT ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UTRSTAT]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		tst	\rd, #S3C2410_UTRSTAT_TXFE
 		beq	1001b
 
@@ -68,7 +92,11 @@
 	.endm
 
 	.macro	waituart,rd,rx
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UFCON ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UFCON]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		tst	\rd, #S3C2410_UFCON_FIFOMODE	@ fifo enabled?
 		beq	1001f				@
 		@ FIFO enabled...
@@ -79,7 +107,11 @@
 		b	1002f
 1001:
 		@ idle waiting for non fifo
+<<<<<<< HEAD
 		ldr	\rd, [\rx, # S3C2410_UTRSTAT ]
+=======
+		ldr	\rd, [\rx, # S3C2410_UTRSTAT]
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		tst	\rd, #S3C2410_UTRSTAT_TXFE
 		beq	1001b
 

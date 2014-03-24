@@ -48,6 +48,10 @@ void *memcpy(void *dest, const void *src, size_t n)
 
 	return dest;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 #define BOOT_HEAP_SIZE             0x10000
 #include "../../../../lib/decompress_inflate.c"
 #endif

@@ -566,10 +566,17 @@ bytes respectively. Such letter suffixes can also be entirely omitted.
 			UART at the specified I/O port or MMIO address,
 			switching to the matching ttyS device later.  The
 			options are the same as for ttyS, above.
+<<<<<<< HEAD
                  hvc<n>	Use the hypervisor console device <n>. This is for
 			both Xen and PowerPC hypervisors.
                
 		 If the device connected to the port is not a TTY but a braille
+=======
+		hvc<n>	Use the hypervisor console device <n>. This is for
+			both Xen and PowerPC hypervisors.
+
+                If the device connected to the port is not a TTY but a braille
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
                 device, prepend "brl," before the device type, for instance
 			console=brl,ttyS0
 		For now, only VisioBraille is supported.

@@ -535,7 +535,11 @@ BEGIN_FTR_SECTION
 1:	cmpd	r0,r25
 	beq	2f
 	mtspr	SPRN_DSCR,r0
+<<<<<<< HEAD
 2:	
+=======
+2:
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 END_FTR_SECTION_IFSET(CPU_FTR_DSCR)
 #endif
 

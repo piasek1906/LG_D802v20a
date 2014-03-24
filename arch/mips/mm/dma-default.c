@@ -42,7 +42,11 @@ static inline int cpu_needs_post_dma_flush(struct device *dev)
 {
 	return !plat_device_is_coherent(dev) &&
 	       (current_cpu_type() == CPU_R10000 ||
+<<<<<<< HEAD
 	        current_cpu_type() == CPU_R12000 ||
+=======
+		current_cpu_type() == CPU_R12000 ||
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		current_cpu_type() == CPU_BMIPS5000);
 }
 

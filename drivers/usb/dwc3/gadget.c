@@ -1867,6 +1867,7 @@ err1:
 	__dwc3_gadget_ep_disable(dwc->eps[0]);
 
 err0:
+	dwc->gadget_driver = NULL;
 	spin_unlock_irqrestore(&dwc->lock, flags);
 	pm_runtime_put(dwc->dev);
 
@@ -1931,6 +1932,7 @@ static int __devinit dwc3_gadget_init_endpoints(struct dwc3 *dwc)
 
 		if (epnum == 0 || epnum == 1) {
 			dep->endpoint.maxpacket = 512;
+			dep->endpoint.maxburst = 1;
 			dep->endpoint.ops = &dwc3_gadget_ep0_ops;
 			if (!epnum)
 				dwc->gadget.ep0 = &dep->endpoint;
@@ -2236,6 +2238,7 @@ static void dwc3_stop_active_transfer(struct dwc3 *dwc, u32 epnum)
 
 	dep = dwc->eps[epnum];
 
+<<<<<<< HEAD
 	if (!dep->resource_index)
 		return;
 
@@ -2267,6 +2270,19 @@ static void dwc3_stop_active_transfer(struct dwc3 *dwc, u32 epnum)
 	dep->resource_index = 0;
 	dep->flags &= ~DWC3_EP_BUSY;
 	udelay(100);
+=======
+	WARN_ON(!dep->res_trans_idx);
+	if (dep->res_trans_idx) {
+		cmd = DWC3_DEPCMD_ENDTRANSFER;
+		cmd |= DWC3_DEPCMD_HIPRI_FORCERM | DWC3_DEPCMD_CMDIOC;
+		cmd |= DWC3_DEPCMD_PARAM(dep->res_trans_idx);
+		memset(&params, 0, sizeof(params));
+		ret = dwc3_send_gadget_ep_cmd(dwc, dep->number, cmd, &params);
+		WARN_ON_ONCE(ret);
+		dep->res_trans_idx = 0;
+		dep->flags &= ~DWC3_EP_BUSY;
+	}
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 }
 
 static void dwc3_stop_active_transfers(struct dwc3 *dwc)

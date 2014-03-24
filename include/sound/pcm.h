@@ -467,7 +467,11 @@ struct snd_pcm {
 	void *private_data;
 	void (*private_free) (struct snd_pcm *pcm);
 	struct device *dev; /* actual hw device this belongs to */
+<<<<<<< HEAD
 	bool internal; /* pcm is for internal use only */
+=======
+    bool internal; /* pcm is for internal use only */
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 #if defined(CONFIG_SND_PCM_OSS) || defined(CONFIG_SND_PCM_OSS_MODULE)
 	struct snd_pcm_oss oss;
 #endif

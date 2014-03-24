@@ -7,7 +7,10 @@
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
+<<<<<<< HEAD
  *
+=======
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
  */
 #include <asm/thread_info.h>
 #include <asm/vfpmacros.h>
@@ -22,7 +25,10 @@
 @  lr  = unrecognised instruction return address
 @  IRQs disabled.
 @
+<<<<<<< HEAD
 
+=======
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 ENTRY(do_vfp)
 #ifdef CONFIG_PREEMPT_COUNT
 	ldr	r4, [r10, #TI_PREEMPT]	@ get preempt count

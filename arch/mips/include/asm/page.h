@@ -176,6 +176,10 @@ typedef struct { unsigned long pgprot; } pgprot_t;
 #ifdef CONFIG_FLATMEM
 #ifndef __ASSEMBLY__
 
+<<<<<<< HEAD
+=======
+#ifndef __ASSEMBLY__
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 static inline int pfn_valid(unsigned long pfn)
 {
 	/* avoid <linux/mm.h> include hell */

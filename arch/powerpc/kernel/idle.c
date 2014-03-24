@@ -127,7 +127,10 @@ static void do_nothing(void *unused)
 void cpu_idle_wait(void)
 {
 	smp_mb();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	/* kick all the CPUs so that they exit out of pm_idle */
 	smp_call_function(do_nothing, NULL, 1);
 }

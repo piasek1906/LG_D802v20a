@@ -77,7 +77,11 @@
 #define SO_NOFCS		43
 
 #ifdef __KERNEL__
+<<<<<<< HEAD
 /* O_NONBLOCK clashes `SSDAZwith the bits used for socket types.  Therefore we
+=======
+/* O_NONBLOCK clashes with the bits used for socket types.  Therefore we
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
  * have to define SOCK_NONBLOCK to a different value here.
  */
 #define SOCK_NONBLOCK	0x40000000

@@ -1447,12 +1447,19 @@ static void destroy_worker(struct worker *worker)
 	if (worker->flags & WORKER_IDLE)
 		pool->nr_idle--;
 
+    /*
+     * Once WORKER_DIE is set, the kworker may destroy itself at any
+     * point.  Pin to ensure the task stays until we're done with it.
+     */
+    get_task_struct(worker->task);
+
 	list_del_init(&worker->entry);
 	worker->flags |= WORKER_DIE;
 
 	spin_unlock_irq(&gcwq->lock);
 
 	kthread_stop(worker->task);
+    put_task_struct(worker->task);
 	kfree(worker);
 
 	spin_lock_irq(&gcwq->lock);
@@ -3641,7 +3648,11 @@ err_destroy:
 #ifdef CONFIG_SMP
 
 struct work_for_cpu {
+<<<<<<< HEAD
 	struct completion completion;
+=======
+  struct work_struct work;
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	long (*fn)(void *);
 	void *arg;
 	long ret;
@@ -3649,7 +3660,11 @@ struct work_for_cpu {
 
 static int do_work_for_cpu(void *_wfc)
 {
+<<<<<<< HEAD
 	struct work_for_cpu *wfc = _wfc;
+=======
+  struct work_for_cpu *wfc = container_of(work, struct work_for_cpu, work);
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	wfc->ret = wfc->fn(wfc->arg);
 	complete(&wfc->completion);
 	return 0;

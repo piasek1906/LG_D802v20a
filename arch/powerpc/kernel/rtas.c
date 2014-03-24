@@ -19,6 +19,7 @@
 #include <linux/init.h>
 #include <linux/capability.h>
 #include <linux/delay.h>
+#include <linux/cpu.h>
 #include <linux/smp.h>
 #include <linux/completion.h>
 #include <linux/cpumask.h>
@@ -930,7 +931,11 @@ int rtas_ibm_suspend_me(struct rtas_args *args)
 		return 0;
 	}
 
+<<<<<<< HEAD
 if (!alloc_cpumask_var(&offline_mask, GFP_TEMPORARY))
+=======
+	if (!alloc_cpumask_var(&offline_mask, GFP_TEMPORARY))
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 		return -ENOMEM;
 
 	atomic_set(&data.working, 0);
@@ -939,7 +944,11 @@ if (!alloc_cpumask_var(&offline_mask, GFP_TEMPORARY))
 	data.token = rtas_token("ibm,suspend-me");
 	data.complete = &done;
 
+<<<<<<< HEAD
 /* All present CPUs must be online */
+=======
+	/* All present CPUs must be online */
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	cpumask_andnot(offline_mask, cpu_present_mask, cpu_online_mask);
 	cpuret = rtas_online_cpus_mask(offline_mask);
 	if (cpuret) {
@@ -963,11 +972,19 @@ if (!alloc_cpumask_var(&offline_mask, GFP_TEMPORARY))
 
 	start_topology_update();
 
+<<<<<<< HEAD
 /* Take down CPUs not online prior to suspend */
+=======
+	/* Take down CPUs not online prior to suspend */
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	cpuret = rtas_offline_cpus_mask(offline_mask);
 	if (cpuret)
 		pr_warn("%s: Could not restore CPUs to offline state.\n",
 				__func__);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 out:
 	free_cpumask_var(offline_mask);
 	return atomic_read(&data.error);

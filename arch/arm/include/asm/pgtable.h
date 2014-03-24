@@ -248,7 +248,11 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
 		ext |= PTE_EXT_NG;
 	}
 
+<<<<<<< HEAD
 set_pte_ext(ptep, pteval, ext);
+=======
+	set_pte_ext(ptep, pteval, ext);
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 }
 
 #define PTE_BIT_FUNC(fn,op) \

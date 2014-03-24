@@ -732,7 +732,11 @@ static int __init vfp_init(void)
 			elf_hwcap |= HWCAP_VFPv3;
 
 			/*
+<<<<<<< HEAD
 			* Check for VFPv3 D16 and VFPv4 D16.  CPUs in
+=======
+			 * Check for VFPv3 D16 and VFPv4 D16.  CPUs in
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 			 * this configuration only have 16 x 64bit
 			 * registers.
 			 */

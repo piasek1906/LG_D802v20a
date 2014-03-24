@@ -2074,6 +2074,7 @@ ia64_mca_init(void)
 	printk(KERN_INFO "MCA related initialization done\n");
 }
 
+
 /*
  * These pieces cannot be done in ia64_mca_init() because it is called before
  * early_irq_init() which would wipe out our percpu irq registrations. But we

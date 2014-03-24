@@ -247,6 +247,10 @@ static void kexec_prepare_cpus(void)
 	smp_call_function(kexec_smp_down, NULL, /* wait */0);
 	local_irq_disable();
 	hard_irq_disable();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	mb(); /* make sure IRQs are disabled before we say they are */
 	get_paca()->kexec_state = KEXEC_STATE_IRQS_OFF;
 

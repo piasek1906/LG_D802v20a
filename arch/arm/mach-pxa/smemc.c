@@ -61,6 +61,12 @@ static int __init smemc_init(void)
 		 * Other bits are reserved in this register.
 		 */
 		__raw_writel(0x2, CSMSADRCFG);
+<<<<<<< HEAD
+=======
+
+		register_syscore_ops(&smemc_syscore_ops);
+	}
+>>>>>>> 322fb36... 3.4.0 -> 3.4.84
 
 		register_syscore_ops(&smemc_syscore_ops);
 }
