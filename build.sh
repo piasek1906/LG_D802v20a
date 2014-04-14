@@ -1,7 +1,7 @@
 #!/bin/bash
 build=/home/piasek/android/Piasek-G2
 kernel="Piasek-KK"
-version="0.1"
+version="0.2"
 rom="LG"
 ramdisk=ramdisk
 toolchain=/home/piasek/android/toolchain/bin
