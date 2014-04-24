@@ -127,7 +127,10 @@ KBUILD_CFLAGS = $(subst -pg, , $(ORIG_CFLAGS))
 endif
 
 ccflags-y := -fpic -fno-builtin -I$(obj)
+<<<<<<< HEAD
 asflags-y := -Wa,-march=all
+=======
+>>>>>>> 3cb7dce... PATCH: applied linux kernel patch 3.4.85->3.4.87
 
 # Supply kernel BSS size to the decompressor via a linker symbol.
 KBSS_SZ = $(shell $(CROSS_COMPILE)size $(obj)/../../../../vmlinux | \
