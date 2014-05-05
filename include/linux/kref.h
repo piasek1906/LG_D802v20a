@@ -95,7 +95,6 @@ static inline int kref_put(struct kref *kref, void (*release)(struct kref *kref)
 	return kref_sub(kref, 1, release);
 }
 
-<<<<<<< HEAD
 static inline int kref_put_mutex(struct kref *kref,
 				 void (*release)(struct kref *kref),
 				 struct mutex *lock)
@@ -114,8 +113,6 @@ static inline int kref_put_mutex(struct kref *kref,
 }
 
 
-=======
->>>>>>> 322fb36... 3.4.0 -> 3.4.84
 /**
  * kref_get_unless_zero - Increment refcount for object unless it is zero.
  * @kref: object.

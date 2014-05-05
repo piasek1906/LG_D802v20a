@@ -476,15 +476,10 @@ static int dwc3_ep0_handle_feature(struct dwc3 *dwc,
 			dep = dwc3_wIndex_to_dep(dwc, wIndex);
 			if (!dep)
 				return -EINVAL;
-<<<<<<< HEAD
 
 			if (!set && (dep->flags & DWC3_EP_WEDGE))
 				return 0;
 
-=======
-			if (set == 0 && (dep->flags & DWC3_EP_WEDGE))
-				break;
->>>>>>> 322fb36... 3.4.0 -> 3.4.84
 			ret = __dwc3_gadget_ep_set_halt(dep, set);
 			if (ret)
 				return -EINVAL;

@@ -38,10 +38,9 @@ jiffies = jiffies_64 + 4;
 #endif
 SECTIONS
 {
-<<<<<<< HEAD
+	. = 0;
+	reloc_start = .;
 
-=======
->>>>>>> 322fb36... 3.4.0 -> 3.4.84
 	. = KERNELBASE;
 
 /*
